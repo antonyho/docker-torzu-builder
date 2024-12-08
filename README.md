@@ -20,22 +20,7 @@ cd docker-torzu-builder
 docker buildx build --tag=torzu-builder --output type=local,dest=./output .
 ```
 
-You should have the binaries in the `output` directory.
-
-Use the docker iamge to build the AppImage:
-```
-docker run \
-  --device /dev/fuse \
-  --cap-add SYS_ADMIN \
-  --security-opt apparmor:unconfined \
-  --name torzu-builder \
-  torzu-builder
-docker wait torzu-builder
-docker cp torzu-builder:/torzu/output/*.AppImage ./output/
-docker rm torzu-builder
-```
-
-You should have the AppImage in the `output` directory.
+You should have the binaries and AppImage in the `output` directory.
 
 (Optional) Remove the intermediate build images:
 ```

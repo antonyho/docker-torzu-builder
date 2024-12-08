@@ -12,4 +12,3 @@ RUN /builder/build.sh
 
 FROM scratch AS export-stage
 COPY --from=builder /torzu/output/* /
-#ENTRYPOINT [ "ls", "-l" ]
